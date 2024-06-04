@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "da42e28d-0e77-4a40-9e3b-b958d05ab041",
+		"name": "Flask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35043305"
+	},
+	"item": [
+		{
+			"name": "BaseHTTPResource",
+			"item": [
+				{
+					"name": "생성",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/default",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "조회",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/default",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "수정",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/default",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "삭제",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/default",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"default"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RecipesResource",
+			"item": [
+				{
+					"name": "레시피 생성",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM1NjI1NCwianRpIjoiZWJiNmMxYTEtYjUwNC00NzkyLWE0NWEtNTc2YjFhNjVlZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM1NjI1NCwiY3NyZiI6IjcwODFmMjBhLTkyMDMtNGIyZi04OWNjLWQwNWUzYWUwMDgwNCJ9.WoxIbsAVooO1ooTUY7vju1QHrpI9SPjn8HfAP3bj9KM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"김치찌개\",\r\n    \"description\":\"맛있게 끓이는 방법\",\r\n    \"num_of_servings\": 4,\r\n    \"cook_time\": 30,\r\n    \"directions\":\"첫번째 | 물을 500cc 넣는다.\\n두번째 | 고기를 볶는다.\\n세번째 | 두부랑 김치를 넣고 끓인다.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "레시피 리스트 조회",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM1NjI1NCwianRpIjoiZWJiNmMxYTEtYjUwNC00NzkyLWE0NWEtNTc2YjFhNjVlZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM1NjI1NCwiY3NyZiI6IjcwODFmMjBhLTkyMDMtNGIyZi04OWNjLWQwNWUzYWUwMDgwNCJ9.WoxIbsAVooO1ooTUY7vju1QHrpI9SPjn8HfAP3bj9KM"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes?offset=0&limit=25",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RecipesByIdResource",
+			"item": [
+				{
+					"name": "단일 레시피 조회",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM2NTIxMSwianRpIjoiMGNlZTY0MWMtODg1OC00ZmEyLWI5NTktMjZiNThkMDgzZGJlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM2NTIxMSwiY3NyZiI6ImJjMzE5YTJlLTk2YTUtNGRkMi04NGI4LTA2M2I4YTc0NTYwYyJ9.uyj1wZi07fcQBeggPjfTLA6C-OZKaW0ddiGxN7UIaks"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes/58",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"58"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "단일 레시피 수정",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM1NjI1NCwianRpIjoiZWJiNmMxYTEtYjUwNC00NzkyLWE0NWEtNTc2YjFhNjVlZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM1NjI1NCwiY3NyZiI6IjcwODFmMjBhLTkyMDMtNGIyZi04OWNjLWQwNWUzYWUwMDgwNCJ9.WoxIbsAVooO1ooTUY7vju1QHrpI9SPjn8HfAP3bj9KM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"보쌈\",\r\n    \"description\":\"맛있게 삶는 방법\",\r\n    \"num_of_servings\": 5,\r\n    \"cook_time\": 45,\r\n    \"directions\":\"첫번째 | 물을 500cc 넣는다.\\n두번째 | 채소를 손질한다.\\n세번째 고기를 채소와 함께 삶는다.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes/58",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"58"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "단일 레시피 삭제",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM1NjI1NCwianRpIjoiZWJiNmMxYTEtYjUwNC00NzkyLWE0NWEtNTc2YjFhNjVlZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM1NjI1NCwiY3NyZiI6IjcwODFmMjBhLTkyMDMtNGIyZi04OWNjLWQwNWUzYWUwMDgwNCJ9.WoxIbsAVooO1ooTUY7vju1QHrpI9SPjn8HfAP3bj9KM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes/57",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"57"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RecipesPublishByIdResource",
+			"item": [
+				{
+					"name": "레시피 퍼블리싱 Invoke",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM1NjI1NCwianRpIjoiZWJiNmMxYTEtYjUwNC00NzkyLWE0NWEtNTc2YjFhNjVlZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM1NjI1NCwiY3NyZiI6IjcwODFmMjBhLTkyMDMtNGIyZi04OWNjLWQwNWUzYWUwMDgwNCJ9.WoxIbsAVooO1ooTUY7vju1QHrpI9SPjn8HfAP3bj9KM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes/58/publish",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"58",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "레시피 퍼블리싱 Toggle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM1NjI1NCwianRpIjoiZWJiNmMxYTEtYjUwNC00NzkyLWE0NWEtNTc2YjFhNjVlZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM1NjI1NCwiY3NyZiI6IjcwODFmMjBhLTkyMDMtNGIyZi04OWNjLWQwNWUzYWUwMDgwNCJ9.WoxIbsAVooO1ooTUY7vju1QHrpI9SPjn8HfAP3bj9KM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes/58/publish",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"58",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "레시피 퍼블리싱 Revoke",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM1NjI1NCwianRpIjoiZWJiNmMxYTEtYjUwNC00NzkyLWE0NWEtNTc2YjFhNjVlZjY1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM1NjI1NCwiY3NyZiI6IjcwODFmMjBhLTkyMDMtNGIyZi04OWNjLWQwNWUzYWUwMDgwNCJ9.WoxIbsAVooO1ooTUY7vju1QHrpI9SPjn8HfAP3bj9KM"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/recipes/58/publish",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"recipes",
+								"58",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserRegisterResource",
+			"item": [
+				{
+					"name": "회원가입",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Gill-dong Hong\",\r\n    \"email\":\"joseon@korea.kr\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserLoginResource",
+			"item": [
+				{
+					"name": "로그인",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"joseon@korea.kr\",\r\n    \"password\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserLogoutResource",
+			"item": [
+				{
+					"name": "로그아웃",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxNjM2NTIxMSwianRpIjoiMGNlZTY0MWMtODg1OC00ZmEyLWI5NTktMjZiNThkMDgzZGJlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ODMsIm5iZiI6MTcxNjM2NTIxMSwiY3NyZiI6ImJjMzE5YTJlLTk2YTUtNGRkMi04NGI4LTA2M2I4YTc0NTYwYyJ9.uyj1wZi07fcQBeggPjfTLA6C-OZKaW0ddiGxN7UIaks"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
