@@ -1,2 +1,2 @@
 # Flask Back-End Application
-- include postman(json), mysql(sql) Files in this project.
+- The postman(json) and mysql(sql) files are included in the project.
