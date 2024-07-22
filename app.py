@@ -11,6 +11,9 @@ from config import Config
 from resources.base import BaseHTTPResource
 from resources.recipe import RecipesResource, RecipesByIdResource, RecipesPublishByIdResource
 from resources.user import UserRegisterResource, UserLoginResource, UserLogoutResource
+from resources.file import LocalFileUpload, LocalFileDownload, LocalFileDelete
+from resources.file import S3FileUpload, S3FileDownload, S3FileDelete
+from resources.rekognition import Rekognition1, Rekognition2
 
 # 파이썬 전용 mysql connector 라이브러리
 # mysql-connector-python
@@ -50,6 +53,17 @@ api.add_resource(RecipesPublishByIdResource, '/recipes/<int:recipe_id>/publish')
 api.add_resource(UserRegisterResource, '/users/register')
 api.add_resource(UserLoginResource, '/users/login')
 api.add_resource(UserLogoutResource, '/users/logout')
+
+api.add_resource(LocalFileUpload, '/upload/local')
+api.add_resource(LocalFileDownload, '/download/local/<path:filename>')
+api.add_resource(LocalFileDelete, '/delete/local/<path:filename>')
+
+api.add_resource(S3FileUpload, '/upload/s3')
+api.add_resource(S3FileDownload, '/download/s3/<path:filename>')
+api.add_resource(S3FileDelete, '/delete/s3/<path:filename>')
+
+api.add_resource(Rekognition1, '/rekognition1')
+api.add_resource(Rekognition2, '/rekognition2')
 
 if __name__ == '__main__':
     app.run()

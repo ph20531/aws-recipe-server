@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Recognition</title>
+    <style>
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Face Recognition Result</h1>
+        
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/jpeg, image/png" required>
+            <button type="submit">Upload & Recognize</button>
+        </form>
+        
+        {% if img_src %}
+        <h3>Detected Faces:</h3>
+        <img src="{{ img_src }}" alt="Recognized Faces">
+        {% endif %}
+        
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
